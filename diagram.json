@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "author": "Smart Attendance Team",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 0,
+      "left": 0
+    },
+    {
+      "type": "wokwi-mfrc522",
+      "id": "rfid",
+      "top": -80,
+      "left": 300
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": 200,
+      "left": 300,
+      "attrs": {
+        "pins": "i2c"
+      }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir",
+      "top": 350,
+      "left": 50
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 350,
+      "left": 350
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led",
+      "top": 350,
+      "left": 450,
+      "attrs": {
+        "color": "green"
+      }
+    }
+  ],
+  "connections": [
+    ["uno:10", "rfid:SDA", "green", []],
+    ["uno:13", "rfid:SCK", "green", []],
+    ["uno:11", "rfid:MOSI", "green", []],
+    ["uno:12", "rfid:MISO", "green", []],
+    ["uno:9", "rfid:RST", "green", []],
+    ["uno:5V", "rfid:3.3V", "red", []],
+    ["uno:GND.1", "rfid:GND", "black", []],
+
+    ["uno:A4", "lcd:SDA", "green", []],
+    ["uno:A5", "lcd:SCL", "green", []],
+    ["uno:5V", "lcd:VCC", "red", []],
+    ["uno:GND.2", "lcd:GND", "black", []],
+
+    ["uno:2", "pir:OUT", "green", []],
+    ["uno:5V", "pir:VCC", "red", []],
+    ["uno:GND.3", "pir:GND", "black", []],
+
+    ["uno:8", "buzzer:1", "green", []],
+    ["uno:GND.4", "buzzer:2", "black", []],
+
+    ["uno:7", "led:A", "green", []],
+    ["uno:GND.5", "led:C", "black", []]
+  ]
+}
